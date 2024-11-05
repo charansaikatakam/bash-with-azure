@@ -44,7 +44,7 @@ rgresult=$(az group exists -n ${env}-{hubrgname})
 
 #echo $rgresult
 
-if $rgresult;then
+if ! $rgresult;then
   echo "creating the resource group"
   az group create -n ${env}-${hubrgname} -l ${rgregion}
 else
